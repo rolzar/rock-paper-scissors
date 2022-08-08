@@ -1,3 +1,5 @@
+let score = [0,0,0];
+
 function getComputerChoice(){
     let choice = ["Rock", "Paper","Scissor"];
     let random =  Math.floor(Math.random()*choice.length);
@@ -14,15 +16,34 @@ function playRound(selection,choice){
     let result;
     if(selection == "Rock" && choice == "Scissor" || selection == "Scissor" && choice == "Paper" || selection == "Paper" && choice == "Rock" ){
         result = "You win! " + selection +  " beats " + choice + ".";
+        score[0] = score[0] + 1;
         return result
     } else if(choice == "Rock" && selection == "Scissor" || choice == "Scissor" && selection == "Paper" || choice == "Paper" && selection == "Rock") {
         result = "You loose! " + choice +  " beats " + selection + ".";
+        score[1] = score[1] + 1;
         return result  
     } else {
-        result = "Its a tie"
+        result = "Its a tie";
+        score[2] = score[2] + 1
         return result
     }
     
 }
 
-console.log(playRound(playerSelection(), getComputerChoice()));
+function game(){
+    let final;
+    for(let i = 0; i < 5; i++){
+        playRound(playerSelection(),getComputerChoice());
+    }
+    if(score[0]>score[1]){
+        final = "You Won!"
+        return final
+    } else if(score[0]<score[1]){
+        final = "You Lost!"
+        return final
+    } else {
+        final = "It's a Tie!"
+        return final
+    }
+    
+}
