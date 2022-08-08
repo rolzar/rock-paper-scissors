@@ -1,4 +1,4 @@
-let score = [0,0,0];
+let score;
 
 function getComputerChoice(){
     let choice = ["Rock", "Paper","Scissor"];
@@ -32,17 +32,18 @@ function playRound(selection,choice){
 
 function game(){
     let final;
+    score = [0,0,0];
     for(let i = 0; i < 5; i++){
-        playRound(playerSelection(),getComputerChoice());
+        console.log(playRound(playerSelection(),getComputerChoice()));
     }
     if(score[0]>score[1]){
-        final = "You Won!"
+        final = "You Won! " + score[0] + "-" + score[1] 
         return final
     } else if(score[0]<score[1]){
-        final = "You Lost!"
+        final = "You Lost! " + score[0] + "-" + score[1] 
         return final
     } else {
-        final = "It's a Tie!"
+        final = "It's a Tie! " + score[0] + "-" + score[1] 
         return final
     }
     
