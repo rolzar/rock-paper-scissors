@@ -4,3 +4,9 @@ function getComputerChoice(){
     return choice[random];
 
 }
+
+function playerSelection(){
+    let choice = prompt("Choose: Rock, Paper, Scissor");
+    return choice
+}
+
