@@ -11,12 +11,18 @@ function playerSelection(){
 }
 
 function playRound(selection,choice){
+    let result;
     if(selection == "Rock" && choice == "Scissor" || selection == "Scissor" && choice == "Paper" || selection == "Paper" && choice == "Rock" ){
-        return console.log("You win! " + selection +  " beats " + choice + "." )
+        result = "You win! " + selection +  " beats " + choice + ".";
+        return result
     } else if(choice == "Rock" && selection == "Scissor" || choice == "Scissor" && selection == "Paper" || choice == "Paper" && selection == "Rock") {
-        return console.log("You loose! " + choice +  " beats " + selection + "." )   
+        result = "You loose! " + choice +  " beats " + selection + ".";
+        return result  
     } else {
-        return console.log("Its a tie")
+        result = "Its a tie"
+        return result
     }
     
 }
+
+console.log(playRound(playerSelection(), getComputerChoice()));
