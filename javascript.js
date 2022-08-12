@@ -48,13 +48,12 @@ function winner(random){
 }
 
 function playerSelection(e){
-    const choice = e.target.className;
+    const choice = e.target.id;
     if(!choice) return;
-    console.log(choice);
+    console.log(e.target);
     winner(choice);
 
 }
-
 
 window.addEventListener('click', playerSelection);
 
